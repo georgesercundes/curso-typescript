@@ -157,3 +157,82 @@ console.log(pessoa1.idade)
 
 pessoa1.idade = -3
 console.log(pessoa1.idade)
+
+// Atributos e métodos estáticos
+class Matematica {
+    static PI: number = 3.1416
+
+    static areaCirc(raio: number): number {
+        return Matematica.PI * raio * raio
+    }
+}
+
+// const m1 = new Matematica()
+// m1.PI = 4.2
+// console.log(m1.areaCirc(4))
+
+console.log(Matematica.areaCirc(4))
+
+// Classe abstrata
+abstract class Calculo {
+    protected resultado: number = 0
+
+    abstract executar(...numeros: number[]): void
+
+    getResultado(): number {
+        return this.resultado
+    }
+}
+
+class Soma extends Calculo {
+    executar(...numeros: number[]): void {
+        this.resultado = numeros.reduce((t, a) => t + a)
+    }
+}
+
+class Multiplicacao extends Calculo {
+    executar(...numeros: number[]): void {
+        this.resultado = numeros.reduce((t, a) => t * a)
+    }
+}
+
+let c1: Calculo = new Soma()
+c1.executar(2, 3, 4, 5)
+console.log(c1.getResultado())
+
+c1 = new Multiplicacao()
+c1.executar(2, 3, 4, 5)
+console.log(c1.getResultado())
+
+class Unico {
+    private static instance: Unico = new Unico
+    private constructor() { }
+
+    static getInstance(): Unico {
+        return Unico.instance
+    }
+
+    agora() {
+        return new Date
+    }
+}
+
+// const errado = new Unico()
+
+const certo = Unico.getInstance()
+console.log(certo.agora())
+
+// Somente Leitura
+class Aviao {
+    public readonly modelo: string
+
+    constructor(modelo: string,
+        public readonly prefixo: string) {
+        this.modelo = modelo
+    }
+}
+
+const tuboHelice = new Aviao('Tu-114', 'PT-ABC')
+// tuboHelice.modelo = 'DC-8'
+// tuboHelice.prefixo = 'PT-DEF'
+console.log(tuboHelice)
