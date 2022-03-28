@@ -2,45 +2,47 @@
 var Saudar;
 (function (Saudar) {
     function ola(pessoa) {
-        console.log('Olá ' + pessoa.nome);
+        console.log("Olá " + pessoa.nome);
     }
     Saudar.ola = ola;
 })(Saudar || (Saudar = {}));
 function mudarNome(pessoa) {
-    pessoa.nome = 'Joana';
+    pessoa.nome = "Joana";
 }
 const pessoa = {
-    nome: 'João',
+    nome: "João",
     idade: 27,
     saudar(sobrenome) {
-        console.log("Olá, meu nome é " + this.nome + ' ' + sobrenome);
-    }
+        console.log("Olá, meu nome é " + this.nome + " " + sobrenome);
+    },
 };
 Saudar.ola(pessoa);
 mudarNome(pessoa);
 Saudar.ola(pessoa);
 // Saudar.ola({ nome: 'Jonas', idade: 27, altura: 1.75 })
-pessoa.saudar('Skywalker');
+pessoa.saudar("Skywalker");
 // Usando Classes...
 class Cliente {
     constructor() {
-        this.nome = '';
-        this.ultimaCompra = new Date;
+        this.nome = "";
+        this.ultimaCompra = new Date();
     }
     saudar(sobrenome) {
-        console.log("Olá, meu nome é " + this.nome + ' ' + sobrenome);
+        console.log("Olá, meu nome é " + this.nome + " " + sobrenome);
     }
 }
-const meuCliente = new Cliente;
-meuCliente.nome = 'Han';
+const meuCliente = new Cliente();
+meuCliente.nome = "Han";
 Saudar.ola(meuCliente);
-meuCliente.saudar('Solo');
+meuCliente.saudar("Solo");
 console.log(meuCliente.ultimaCompra);
 let potencia;
 potencia = function (base, exp) {
     // Math.pow(base, exp)
     // base ** exp
-    return Array(exp).fill(base).reduce((p, c) => p * c);
+    return Array(exp)
+        .fill(base)
+        .reduce((p, c) => p * c);
 };
 console.log(potencia(3, 10));
 console.log(Math.pow(3, 10));
@@ -71,10 +73,10 @@ x.log();
 y.log();
 z.log();
 const cli = {
-    nome: 'Pedro',
+    nome: "Pedro",
     toString() {
         return this.nome;
-    }
+    },
 };
 cli.log();
 //# sourceMappingURL=interfaces.js.map

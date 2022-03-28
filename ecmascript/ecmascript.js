@@ -1,25 +1,25 @@
 "use strict";
 // let & const
-let seraQuePode = '?';
+let seraQuePode = "?";
 console.log(seraQuePode);
 let estaFrio = true;
 if (estaFrio) {
-    let acao = 'Colocar o casaco!';
+    let acao = "Colocar o casaco!";
     console.log(acao);
 }
-const cpf = '123.456.000-99';
+const cpf = "123.456.000-99";
 // cpf = '789,101.132-78'
 console.log(cpf);
-var segredo = 'externo!';
+var segredo = "externo!";
 function revelar() {
-    const segredo = 'interno';
+    const segredo = "interno";
     console.log(segredo);
 }
 revelar();
 console.log(segredo);
 {
     {
-        const def = 'def';
+        const def = "def";
         console.log(def);
     }
 }
@@ -34,10 +34,10 @@ function somar(n1, n2) {
 console.log(somar(2, 2));
 const subtrair = (n1, n2) => n1 - n2;
 console.log(subtrair(2, 3));
-const saudacao = () => console.log('Olá!');
+const saudacao = () => console.log("Olá!");
 saudacao();
-const falarCom = (pessoa) => console.log('Ola ' + pessoa);
-falarCom('João');
+const falarCom = (pessoa) => console.log("Ola " + pessoa);
+falarCom("João");
 // this
 // function normalComThis() {
 //     console.log(this)
@@ -65,8 +65,8 @@ contagemRegressiva(3);
 // Rest & Spread
 const numbers = [1, 10, 99, -5, 200, 1034];
 console.log(Math.max(...numbers));
-const turmaA = ['João', 'Maria', 'Fernanda'];
-const turmaB = ['Fernando', 'Miguel', 'Lorena', ...turmaA];
+const turmaA = ["João", "Maria", "Fernanda"];
+const turmaB = ["Fernando", "Miguel", "Lorena", ...turmaA];
 console.log(turmaB);
 function retornarArray(...args) {
     return args;
@@ -75,7 +75,7 @@ const numeros = retornarArray(1, 2, 3, 4, 5, 6, 345, 62);
 console.log(numeros);
 console.log(retornarArray(...numbers));
 // Rest & Spread (Tupla)
-const tupla = [1, 'abc', false];
+const tupla = [1, "abc", false];
 function tuplaParam1(a, b, c) {
     console.log(`1) ${a} ${b} ${c}`);
 }
@@ -86,7 +86,7 @@ function tuplaParam2(...params) {
 }
 tuplaParam2(...tupla);
 // Destructuring (Array)
-const caracteristicas = ['Motor Zetec 1.8', 2020];
+const caracteristicas = ["Motor Zetec 1.8", 2020];
 // const motor = caracteristicas[0]
 // const ano = caracteristicas[1]
 const [motor, ano] = caracteristicas;
@@ -94,27 +94,27 @@ console.log(motor);
 console.log(ano);
 // Destructuring(Objeto)
 const item = {
-    nome: 'SSD 480GB',
+    nome: "SSD 480GB",
     preco: 200,
     caracteristicas: {
-        w: 'Importado'
-    }
+        w: "Importado",
+    },
 };
 const nomeItem = item.nome;
 const precoItem = item.preco;
 console.log(nomeItem);
 console.log(precoItem);
-const { nome: n, preco: p, caracteristicas: { w } } = item;
+const { nome: n, preco: p, caracteristicas: { w }, } = item;
 console.log(n);
 console.log(p);
 console.log(w);
 // Template String
-const usuarioID = 'SuporteCod3r';
-const notificacoes = '19';
+const usuarioID = "SuporteCod3r";
+const notificacoes = "19";
 // const boasVindas = 'Boas Vindas ' + usuarioID + ' Notificacoes: ' + notificacoes
 const boasVindas = ` 
     	Boas vindas ${usuarioID},
-        Notificações: ${parseInt(notificacoes) > 9 ? '+9' : notificacoes}
+        Notificações: ${parseInt(notificacoes) > 9 ? "+9" : notificacoes}
 `;
 console.log(boasVindas);
 console.log(`${(1 + 1) * 30}`);
@@ -124,7 +124,7 @@ console.log(`Motor: ${caracteristicas[0]}`);
 const dobro = (valor) => valor * 2;
 console.log(dobro(10));
 // 2
-const dizerOla = (nome = 'Pessoa') => console.log("Ola, " + nome);
+const dizerOla = (nome = "Pessoa") => console.log("Ola, " + nome);
 dizerOla();
 dizerOla("Anna");
 // 3
@@ -143,7 +143,7 @@ console.log(primeiroNome, experiencia);
 // Callback
 function esperar3s(callback) {
     setTimeout(() => {
-        callback('3s depois...');
+        callback("3s depois...");
     }, 3000);
 }
 esperar3s(function (resultado) {
@@ -152,17 +152,16 @@ esperar3s(function (resultado) {
 function esperar3sPromise() {
     return new Promise((resolve) => {
         setTimeout(() => {
-            resolve('3s depois promise...');
+            resolve("3s depois promise...");
         }, 3000);
     });
 }
-esperar3sPromise()
-    .then(dado => console.log(dado));
-fetch('https://swapi.dev/api/people/4')
-    .then(res => res.json())
-    .then(personagem => personagem.films)
-    .then(films => fetch(films[2]))
-    .then(resFilm => resFilm.json())
-    .then(film => console.log(film.title))
-    .catch(err => console.log('Catch!!' + err));
+esperar3sPromise().then((dado) => console.log(dado));
+fetch("https://swapi.dev/api/people/4")
+    .then((res) => res.json())
+    .then((personagem) => personagem.films)
+    .then((films) => fetch(films[2]))
+    .then((resFilm) => resFilm.json())
+    .then((film) => console.log(film.title))
+    .catch((err) => console.log("Catch!!" + err));
 //# sourceMappingURL=ecmascript.js.map

@@ -2,16 +2,16 @@
 function echo(objeto) {
     return objeto;
 }
-console.log(echo('João').length);
+console.log(echo("João").length);
 console.log(echo(27).length);
-console.log(echo({ nome: 'João', idade: 27 }));
+console.log(echo({ nome: "João", idade: 27 }));
 // Usando Generics
 function echoMelhorado(objeto) {
     return objeto;
 }
-console.log(echoMelhorado('João').length);
+console.log(echoMelhorado("João").length);
 console.log(echoMelhorado(27));
-console.log(echoMelhorado({ nome: 'João', idade: 27 }));
+console.log(echoMelhorado({ nome: "João", idade: 27 }));
 //Generics disponíveis na API
 const avaliacoes = [10, 9.3, 7.7];
 avaliacoes.push(8.4);
@@ -19,20 +19,20 @@ avaliacoes.push(8.4);
 console.log(avaliacoes);
 // Array
 function imprimir(args) {
-    args.forEach(elemento => console.log(elemento));
+    args.forEach((elemento) => console.log(elemento));
 }
 imprimir([1, 2, 3]);
 imprimir([1, 2, 3]);
-imprimir(['Ana', 'Bia', 'Carlos']);
+imprimir(["Ana", "Bia", "Carlos"]);
 imprimir([
-    { nome: 'Fulano', idade: 22 },
-    { nome: 'Cicrano', idade: 23 },
-    { nome: 'Beltrano', idade: 22 }
+    { nome: "Fulano", idade: 22 },
+    { nome: "Cicrano", idade: 23 },
+    { nome: "Beltrano", idade: 22 },
 ]);
 imprimir([
-    { nome: 'Fulano', idade: 22 },
-    { nome: 'Cicrano', idade: 23 },
-    { nome: 'Beltrano', idade: 22 }
+    { nome: "Fulano", idade: 22 },
+    { nome: "Cicrano", idade: 23 },
+    { nome: "Beltrano", idade: 22 },
 ]);
 // Tipo Genérico
 const chamarEcho = echoMelhorado;
@@ -86,9 +86,9 @@ class Fila {
         console.log(this.fila);
     }
 }
-const fila = new Fila('Gui', 'Pedro', 'Ana', 'Lu');
+const fila = new Fila("Gui", "Pedro", "Ana", "Lu");
 fila.imprimir();
-fila.entrar('Rafael');
+fila.entrar("Rafael");
 fila.imprimir();
 console.log(fila.proximo());
 console.log(fila.proximo());
@@ -101,7 +101,7 @@ class Mapa {
         this.itens = [];
     }
     obter(chave) {
-        const [resultado] = this.itens.filter(item => item.chave === chave);
+        const [resultado] = this.itens.filter((item) => item.chave === chave);
         return resultado || null;
     }
     colocar(objeto) {
@@ -121,10 +121,10 @@ class Mapa {
     }
 }
 const mapa = new Mapa();
-mapa.colocar({ chave: 1, valor: 'Pedro' });
-mapa.colocar({ chave: 2, valor: 'Rebeca' });
-mapa.colocar({ chave: 3, valor: 'Maria' });
-mapa.colocar({ chave: 1, valor: 'Gustavo' });
+mapa.colocar({ chave: 1, valor: "Pedro" });
+mapa.colocar({ chave: 2, valor: "Rebeca" });
+mapa.colocar({ chave: 3, valor: "Maria" });
+mapa.colocar({ chave: 1, valor: "Gustavo" });
 console.log(mapa.obter(2));
 mapa.imprimir();
 mapa.limpar();

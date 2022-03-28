@@ -6,13 +6,13 @@ class Moto {
         this.velocidade = 0;
     }
     buzinar() {
-        console.log('Toooooooooot!');
+        console.log("Toooooooooot!");
     }
     acelerar(delta) {
         this.velocidade = this.velocidade + delta;
     }
 }
-const moto = new Moto('Ducati');
+const moto = new Moto("Ducati");
 moto.buzinar();
 console.log(moto.velocidade);
 moto.acelerar(30);
@@ -34,7 +34,7 @@ console.log(retangulo.area());
 // Exercício 3 - Getters & Setters
 class Estagiario {
     constructor() {
-        this._primeiroNome = '';
+        this._primeiroNome = "";
     }
     get primeiroNome() {
         return this._primeiroNome;
@@ -45,10 +45,10 @@ class Estagiario {
         }
     }
 }
-const estagiario = new Estagiario;
+const estagiario = new Estagiario();
 console.log(estagiario.primeiroNome);
-estagiario.primeiroNome = 'Le';
+estagiario.primeiroNome = "Le";
 console.log(estagiario.primeiroNome);
-estagiario.primeiroNome = 'Leonardo';
+estagiario.primeiroNome = "Leonardo";
 console.log(estagiario.primeiroNome);
 //# sourceMappingURL=desafio.js.map

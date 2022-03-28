@@ -10,7 +10,7 @@ const aniversario = new Data(3, 11, 1991);
 aniversario.dia = 4;
 console.log(aniversario.dia);
 console.log(aniversario);
-const casamento = new Data; //posso omitir os "()"
+const casamento = new Data(); //posso omitir os "()"
 casamento.ano = 2017;
 console.log(casamento);
 class DataEsperta {
@@ -24,7 +24,7 @@ const aniversarioEsperto = new DataEsperta(3, 11, 1991);
 aniversario.dia = 4;
 console.log(aniversario.dia);
 console.log(aniversario);
-const casamentoEsperto = new Data; //posso omitir os "()"
+const casamentoEsperto = new Data(); //posso omitir os "()"
 casamento.ano = 2017;
 console.log(casamento);
 /*
@@ -48,10 +48,10 @@ class Produto {
         return `${this.nome} custa R$ ${this.precoComDesconto().toFixed(2)} (${this.desconto * 100}% off)`;
     }
 }
-const prod1 = new Produto('Caneta Bic Preta', 4.20);
+const prod1 = new Produto("Caneta Bic Preta", 4.2);
 prod1.desconto = 0.06;
 console.log(prod1.resumo());
-const prod2 = new Produto('Caderno Escolar', 18.80, 0.15);
+const prod2 = new Produto("Caderno Escolar", 18.8, 0.15);
 console.log(prod2.resumo());
 class Carro {
     constructor(marca, modelo, velocidadeMaxima = 200) {
@@ -62,8 +62,7 @@ class Carro {
     }
     alterarVelocidade(delta) {
         const novaVelocidade = this.velocidadeAtual + delta;
-        const velocidadeValida = novaVelocidade >= 0
-            && novaVelocidade <= this.velocidadeMaxima;
+        const velocidadeValida = novaVelocidade >= 0 && novaVelocidade <= this.velocidadeMaxima;
         if (velocidadeValida) {
             this.velocidadeAtual = novaVelocidade;
         }
@@ -79,10 +78,14 @@ class Carro {
         return this.alterarVelocidade(-5);
     }
 }
-const carro1 = new Carro('Ford', 'Ka', 185);
-Array(50).fill(0).forEach(() => carro1.acelerar());
+const carro1 = new Carro("Ford", "Ka", 185);
+Array(50)
+    .fill(0)
+    .forEach(() => carro1.acelerar());
 console.log(carro1.acelerar());
-Array(40).fill(0).forEach(() => carro1.frear());
+Array(40)
+    .fill(0)
+    .forEach(() => carro1.frear());
 console.log(carro1.frear());
 // Simular "erros"
 // carro1.velocidadeAtual = 300
@@ -93,7 +96,7 @@ console.log(carro1.frear());
 // console.log('atual -> ' + carro1.velocidadeAtual)
 class Ferrari extends Carro {
     constructor(modelo, velocidadeMaxima) {
-        super('Ferrari', modelo, velocidadeMaxima);
+        super("Ferrari", modelo, velocidadeMaxima);
     }
     acelerar() {
         return this.alterarVelocidade(20);
@@ -102,7 +105,7 @@ class Ferrari extends Carro {
         return this.alterarVelocidade(-15);
     }
 }
-const f40 = new Ferrari('F40', 324);
+const f40 = new Ferrari("F40", 324);
 console.log(`${f40.marca} ${f40.modelo}`);
 console.log(f40.acelerar());
 console.log(f40.acelerar());
@@ -123,7 +126,7 @@ class Pessoa {
         }
     }
 }
-const pessoa1 = new Pessoa;
+const pessoa1 = new Pessoa();
 pessoa1.idade = 10;
 console.log(pessoa1.idade);
 pessoa1.idade = -3;
@@ -170,10 +173,10 @@ class Unico {
         return Unico.instance;
     }
     agora() {
-        return new Date;
+        return new Date();
     }
 }
-Unico.instance = new Unico;
+Unico.instance = new Unico();
 // const errado = new Unico()
 const certo = Unico.getInstance();
 console.log(certo.agora());
@@ -184,7 +187,7 @@ class Aviao {
         this.modelo = modelo;
     }
 }
-const tuboHelice = new Aviao('Tu-114', 'PT-ABC');
+const tuboHelice = new Aviao("Tu-114", "PT-ABC");
 // tuboHelice.modelo = 'DC-8'
 // tuboHelice.prefixo = 'PT-DEF'
 console.log(tuboHelice);
